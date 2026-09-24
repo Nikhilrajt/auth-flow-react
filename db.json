@@ -1,22 +1,58 @@
 {
-    "users": [
-        {
-            "id": "1",
-            "username": "john_doe",
-            "email": "john@example.com",
-            "password": "password123",
-            "fullName": "John Doe",
-            "avatar": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop",
-            "createdAt": "2026-02-17T10:00:00Z"
-        },
-        {
-            "id": "2",
-            "username": "jane_smith",
-            "email": "jane@example.com",
-            "password": "welcome123",
-            "fullName": "Jane Smith",
-            "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop",
-            "createdAt": "2026-02-18T11:30:00Z"
-        }
-    ]
+  "users": [
+    {
+      "id": "1",
+      "username": "john_doe",
+      "email": "john@example.com",
+      "password": "password123",
+      "fullName": "John Doe",
+      "avatar": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop",
+      "createdAt": "2026-02-17T10:00:00Z"
+    },
+    {
+      "id": "2",
+      "username": "jane_smith",
+      "email": "jane@example.com",
+      "password": "welcome123",
+      "fullName": "Jane Smith",
+      "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop",
+      "createdAt": "2026-02-18T11:30:00Z"
+    },
+    {
+      "username": "Indrajith",
+      "email": "indru@gmail.com",
+      "password": "indru@123",
+      "fullName": "Indrajith.TM",
+      "avatar": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop",
+      "id": "r8tvhu74Xb0"
+    },
+    {
+      "username": "Rahul",
+      "email": "rahul@gmail.com",
+      "password": "rahul@123",
+      "fullName": "rahul kumar",
+      "avatar": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop",
+      "createdAt": "2026-09-24T10:33:40.785Z",
+      "id": "u00pQ5yB5tc"
+    },
+    {
+      "username": "vasu",
+      "email": "vasu@gmail.com",
+      "password": "vasu@123",
+      "fullName": "vasudev",
+      "avatar": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop",
+      "createdAt": "2026-09-24T10:50:27.750Z",
+      "id": "-B8cQUfzenM"
+    },
+    {
+      "username": "murali",
+      "email": "murali@gmail.com",
+      "password": "murali@123",
+      "fullName": "muraleedaran",
+      "avatar": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop",
+      "createdAt": "2026-09-24T10:51:20.313Z",
+      "id": "vJR7iJNBbFo"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }

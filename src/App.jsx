@@ -1,5 +1,9 @@
+import RegisterPage from "./pages/RegisterPage";
+
 function App() {
-  return <h1>Authentication System</h1>;
+  return <div>
+  <RegisterPage/>
+  </div>
 }
 
 export default App;
