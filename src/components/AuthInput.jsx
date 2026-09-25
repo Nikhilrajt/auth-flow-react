@@ -1,3 +1,4 @@
+import { useState } from "react";
 function AuthInput({
     label,
     name,
@@ -7,7 +8,9 @@ function AuthInput({
     onChange,
     error,
     status
-}) {
+})
+ {
+    const [showPassword, setShowPassword] = useState(false);
     return (
         <div>
             <label className="block text-sm font-medium text-gray-800 mb-2">
@@ -15,13 +18,22 @@ function AuthInput({
             </label>
 
             <input
-                type={type}
+                type={type === "password" && showPassword ? "text" : type}
                 name={name}
                 value={value}
                 placeholder={placeholder}
                 onChange={onChange}
                 className="w-full bg-gray-200 border border-gray-400 rounded-lg px-4 py-3 text-gray-900 placeholder-gray-600 outline-none focus:border-gray-700 focus:ring-1 focus:ring-gray-500"
             />
+            {type === "password" && (
+    <button
+        type="button"
+        onClick={() => setShowPassword((prev) => !prev)}
+        className="text-sm text-gray-700 mt-1 hover:underline"
+    >
+        {showPassword ? "Hide password" : "Show password"}
+    </button>
+)}
 
             {error ? (
                 <p className="text-red-600 text-sm mt-1">

@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import AuthInput from "../components/AuthInput";
 import AuthContext from "../contexts/AuthContextDefinition";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import {
     validateEmail,
     validatePassword
@@ -14,6 +15,7 @@ function LoginPage() {
         email: "",
         password: ""
     });
+    const [rememberMe, setRememberMe] = useState(false);
 
     const [errors, setErrors] = useState({});
 
@@ -59,7 +61,8 @@ function LoginPage() {
         try {
             await login({
                 email: formData.email,
-                password: formData.password
+                password: formData.password,
+                rememberMe
             });
 
             console.log("Login successful");
@@ -107,6 +110,23 @@ function LoginPage() {
                         onChange={handleChange}
                         error={errors.password}
                     />
+                    <Link
+                        to="/forgot-password"
+                        className="text-sm text-gray-900 font-medium hover:underline"
+                    >
+                        Forgot password?
+                    </Link>
+                    <div className="flex items-center gap-2">
+                        <input
+                            type="checkbox"
+                            checked={rememberMe}
+                            onChange={(e) => setRememberMe(e.target.checked)}
+                        />
+
+                        <label className="text-sm text-gray-700">
+                            Remember me
+                        </label>
+                    </div>
                     {errors.form && (
                         <p className="text-red-600 text-sm text-center">
                             {errors.form}
@@ -124,9 +144,12 @@ function LoginPage() {
 
                 <p className="text-center text-sm text-gray-700 mt-6">
                     Don't have an account?{" "}
-                    <span className="text-gray-900 font-medium cursor-pointer hover:underline">
+                    <Link
+                        to="/register"
+                        className="text-gray-900 font-medium hover:underline"
+                    >
                         Register
-                    </span>
+                    </Link>
                 </p>
 
             </div>

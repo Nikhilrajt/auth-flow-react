@@ -36,4 +36,12 @@ export const createUser = async (userData) => {
     return response.data;
 };
 
+export const verifyUserEmail = async (id) => {
+    const response = await API.patch(`/users/${id}`, {
+        emailVerified: true
+    });
+
+    return response.data;
+};
+
 export default API;
