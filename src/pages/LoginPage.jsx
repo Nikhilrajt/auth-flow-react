@@ -1,12 +1,14 @@
 import { useContext, useState } from "react";
 import AuthInput from "../components/AuthInput";
 import AuthContext from "../contexts/AuthContextDefinition";
+import { useNavigate } from "react-router-dom";
 import {
     validateEmail,
     validatePassword
 } from "../utils/validation";
 
 function LoginPage() {
+    const navigate = useNavigate();
     const { login, isLoading } = useContext(AuthContext);
     const [formData, setFormData] = useState({
         email: "",
@@ -61,6 +63,7 @@ function LoginPage() {
             });
 
             console.log("Login successful");
+            navigate("/dashboard");
         } catch (error) {
             setErrors((prev) => ({
                 ...prev,

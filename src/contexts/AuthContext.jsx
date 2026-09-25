@@ -1,34 +1,66 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import AuthContext from "./AuthContextDefinition";
-import { getUserByEmail } from "../services/authApi";
+import { getUserByEmail, getUserById } from "../services/authApi";
 
 function AuthProvider({ children }) {
     const [user, setUser] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
-   const login = async (credentials) => {
-    setIsLoading(true);
+    useEffect(() => {
+        const userId = localStorage.getItem("userId");
 
-    try {
-        const users = await getUserByEmail(credentials.email);
-
-        if (users.length === 0) {
-            throw new Error("Invalid email or password");
+        if (!userId) {
+            return;
         }
 
-        const user = users[0];
+        const restoreUser = async () => {
+            setIsLoading(true);
 
-        if (user.password !== credentials.password) {
-            throw new Error("Invalid email or password");
+            try {
+                const user = await getUserById(userId);
+                setUser(user);
+            } catch {
+                localStorage.removeItem("userId");
+                setUser(null);
+            } finally {
+                setIsLoading(false);
+            }
+        };
+
+        restoreUser();
+    }, []);
+
+    const login = async (credentials) => {
+        setIsLoading(true);
+
+        try {
+            const users = await getUserByEmail(credentials.email);
+
+            if (users.length === 0) {
+                throw new Error("Invalid email or password");
+            }
+
+            const user = users[0];
+
+            if (user.password !== credentials.password) {
+                throw new Error("Invalid email or password");
+            }
+
+            localStorage.setItem("userId", user.id);
+            setUser(user);
+
+            return user;
+        } finally {
+            setIsLoading(false);
         }
-
-        localStorage.setItem("userId", user.id);
-        setUser(user);
-
-        return user;
-    } finally {
-        setIsLoading(false);
-    }
+    };
+    const isAuthenticated = () => {
+        return !!user;
+    };
+    const logout = () => {
+    localStorage.removeItem("userId");
+    setUser(null);
 };
+
     return (
         <AuthContext.Provider
             value={{
@@ -36,7 +68,9 @@ function AuthProvider({ children }) {
                 setUser,
                 isLoading,
                 setIsLoading,
-                login
+                login,
+                isAuthenticated,
+                logout
             }}
         >
             {children}
