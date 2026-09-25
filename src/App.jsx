@@ -12,27 +12,27 @@ import ThemeProvider from "./contexts/ThemeContext";
 function App() {
   return (
     <>
-    <Toaster position="top-right" />
-    <ThemeProvider>
-    <AuthProvider>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/register" element={<RegisterPage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/dashboard" element={
-            <ProtectRoute>
-              <DashboardPage />
-            </ProtectRoute>} />
-          <Route path="/forgot-password" element={<ForgotPasswordPage />} />
-          <Route
-            path="/verify-email"
-            element={<VerifyEmailPage />}
-          />
-          <Route path="/" element={<Navigate to="/login" replace />} />
-        </Routes>
-      </BrowserRouter>
-    </AuthProvider>
-    </ThemeProvider>
+      <Toaster position="top-right" />
+      <ThemeProvider>
+        <AuthProvider>
+          <BrowserRouter>
+            <Routes>
+              <Route path="/register" element={<RegisterPage />} />
+              <Route path="/login" element={<LoginPage />} />
+              <Route path="/dashboard" element={
+                <ProtectRoute>
+                  <DashboardPage />
+                </ProtectRoute>} />
+              <Route path="/forgot-password" element={<ForgotPasswordPage />} />
+              <Route
+                path="/verify-email"
+                element={<VerifyEmailPage />}
+              />
+              <Route path="/" element={<Navigate to="/login" replace />} />
+            </Routes>
+          </BrowserRouter>
+        </AuthProvider>
+      </ThemeProvider>
     </>
   )
 }

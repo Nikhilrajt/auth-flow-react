@@ -3,6 +3,7 @@ import AuthContext from "../contexts/AuthContextDefinition";
 import AuthInput from "../components/AuthInput";
 import { checkUsername } from "../services/authApi";
 import ThemeContext from "../contexts/ThemeContextDefinition"
+import { Link, useNavigate } from "react-router-dom";
 import {
     validateFullName,
     validatePassword,
@@ -22,6 +23,7 @@ function RegisterPage() {
     const usernameCheckRef = useRef(0);
     const { register, isLoading } = useContext(AuthContext);
     const { theme, toggleTheme } = useContext(ThemeContext);
+    const navigate = useNavigate();
     const handleChange = async (e) => {
         const { name, value } = e.target;
 
@@ -93,9 +95,8 @@ function RegisterPage() {
             return;
         }
         try {
-            const user = await register(formData);
-
-            console.log("User created", user);
+            await register(formData);
+            navigate("/dashboard");
         } catch (error) {
             console.error("Registration error:", error);
 
@@ -206,9 +207,13 @@ function RegisterPage() {
                         }`}
                 >
                     Already have an account?{" "}
-                    <span className="text-gray-900 font-medium cursor-pointer hover:underline">
+                    <Link
+                        to="/login"
+                        className={`font-medium hover:underline ${theme === "dark" ? "text-white" : "text-gray-900"
+                            }`}
+                    >
                         Login
-                    </span>
+                    </Link>
                 </p>
 
             </div>

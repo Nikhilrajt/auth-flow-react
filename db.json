@@ -8,7 +8,7 @@
       "fullName": "John Doe",
       "avatar": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop",
       "createdAt": "2026-02-17T10:00:00Z",
-      "emailVerified": true
+      "emailVerified": false
     },
     {
       "id": "2",
@@ -27,7 +27,7 @@
       "fullName": "Indrajith.TM",
       "avatar": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop",
       "id": "r8tvhu74Xb0",
-      "emailVerified": false
+      "emailVerified": true
     },
     {
       "username": "Rahul",
@@ -198,6 +198,46 @@
       "createdAt": "2026-09-25T09:50:00.719Z",
       "emailVerified": false,
       "id": "c0VDwMVslDk"
+    },
+    {
+      "username": "Nikhil",
+      "email": "Nikhil@gmail.com",
+      "password": "Nikhil@123",
+      "fullName": "Nikhil Raj T",
+      "avatar": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop",
+      "createdAt": "2026-09-25T18:00:34.670Z",
+      "emailVerified": false,
+      "id": "Ln2aVAQkVNE"
+    },
+    {
+      "username": "Nikhil Raj",
+      "email": "Nikhil@gmail.com",
+      "password": "Nikhil@123",
+      "fullName": "Nikhil Raj T",
+      "avatar": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop",
+      "createdAt": "2026-09-25T18:00:44.830Z",
+      "emailVerified": false,
+      "id": "1G9HvamrtQA"
+    },
+    {
+      "username": "Nikhil Raj.T",
+      "email": "Nikhil@gmail.com",
+      "password": "Nikhil@123",
+      "fullName": "Nikhil Raj T",
+      "avatar": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop",
+      "createdAt": "2026-09-25T18:00:52.816Z",
+      "emailVerified": false,
+      "id": "Mew77vT-Q4E"
+    },
+    {
+      "username": "Nehal",
+      "email": "Nehal@gmail.com",
+      "password": "Nehal@123",
+      "fullName": "Nehal Raj",
+      "avatar": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop",
+      "createdAt": "2026-09-25T18:14:19.665Z",
+      "emailVerified": true,
+      "id": "nf7QbrtfX0M"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

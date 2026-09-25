@@ -62,6 +62,9 @@ function AuthProvider({ children }) {
 
             const user = await createUser(newUser);
 
+            setUser(user);
+            localStorage.setItem("userId", user.id);
+
             return user;
         } finally {
             setIsLoading(false);

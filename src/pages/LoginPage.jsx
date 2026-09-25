@@ -127,24 +127,28 @@ function LoginPage() {
                         onChange={handleChange}
                         error={errors.password}
                     />
-                    <Link
-                        to="/forgot-password"
-                        className={`text-sm font-medium hover:underline ${theme === "dark" ? "text-gray-300" : "text-gray-900"
-                            }`}
-                    >
-                        Forgot password?
-                    </Link>
-                    <div className="flex items-center gap-2">
-                        <input
-                            type="checkbox"
-                            checked={rememberMe}
-                            onChange={(e) => setRememberMe(e.target.checked)}
-                        />
 
-                        <label className={`text-sm ${theme === "dark" ? "text-gray-300" : "text-gray-700"
-                            }`}>
+                    <div className="flex items-center justify-between gap-4">
+                        <label
+                            className={`flex items-center gap-2 text-sm ${theme === "dark" ? "text-gray-300" : "text-gray-700"
+                                }`}
+                        >
+                            <input
+                                type="checkbox"
+                                checked={rememberMe}
+                                onChange={(e) => setRememberMe(e.target.checked)}
+                            />
+
                             Remember me
                         </label>
+
+                        <Link
+                            to="/forgot-password"
+                            className={`text-sm font-medium hover:underline ${theme === "dark" ? "text-gray-300" : "text-gray-900"
+                                }`}
+                        >
+                            Forgot password?
+                        </Link>
                     </div>
                     {errors.form && (
                         <p className="text-red-600 text-sm text-center">

@@ -10,15 +10,15 @@ export const validateUsername = (username) => {
   return "";
 };
 export const validateEmail = (email) => {
-    if (!email.trim()) return "Email is required";
+  if (!email.trim()) return "Email is required";
 
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    if (!emailRegex.test(email)) {
-        return "Enter a valid email";
-    }
+  if (!emailRegex.test(email)) {
+    return "Enter a valid email";
+  }
 
-    return "";
+  return "";
 };
 export const validatePassword = (password) => {
   if (!password.trim()) {

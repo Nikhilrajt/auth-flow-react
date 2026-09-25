@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import AuthContext from "../contexts/AuthContextDefinition";
 import ThemeContext from "../contexts/ThemeContextDefinition";
+import { Link } from "react-router-dom";
 
 function DashboardPage() {
     const { user, logout } = useContext(AuthContext);
@@ -35,24 +36,26 @@ function DashboardPage() {
                 </div>
 
                 <div className="flex flex-col items-center mb-6">
-
                     <img
                         src={user?.avatar}
                         alt="Profile"
-                        className="w-24 h-24 rounded-full object-cover border-2 border-gray-400 mb-4"
+                        className="w-24 h-24 rounded-full object-cover border-2 border-gray-400 mb-5"
                     />
 
-                    <input
-                        type="file"
-                        accept="image/*"
-                        className={`w-full text-sm ${theme === "dark" ? "text-gray-300" : "text-gray-700"
-                            }`}
-                    />
-
+                    <div className="flex items-center justify-center gap-3">
+                        <input
+                            type="file"
+                            accept="image/*"
+                            className={`text-sm file:py-2 file:px-4 file:rounded-lg file:border-0 file:font-medium ${theme === "dark"
+                                    ? "text-gray-300 file:bg-gray-700 file:text-white hover:file:bg-gray-600"
+                                    : "text-gray-700 file:bg-gray-200 file:text-gray-800 hover:file:bg-gray-300"
+                                }`}
+                        />
+                    </div>
                 </div>
 
                 <div
-                    className={`space-y-4 ${theme === "dark" ? "text-gray-200" : "text-gray-800"
+                    className={`space-y-5 ${theme === "dark" ? "text-gray-200" : "text-gray-800"
                         }`}
                 >
 
@@ -60,21 +63,66 @@ function DashboardPage() {
                         <p className="text-sm font-medium">
                             Username
                         </p>
-                        <p>{user?.username}</p>
+                        <p className="mt-1">{user?.username}</p>
                     </div>
 
                     <div>
                         <p className="text-sm font-medium">
                             Email
                         </p>
-                        <p>{user?.email}</p>
+                        <p className="mt-1">{user?.email}</p>
                     </div>
+                    <div>
+                        <p className="text-sm font-medium">Email Status</p>
 
+                        {user?.emailVerified ? (
+                            <p className="mt-1 text-green-600 font-medium">
+                                ✓ Email Verified
+                            </p>
+                        ) : (
+                            <div className="mt-1">
+                                <p className="text-red-600">
+                                    Email Not Verified
+                                </p>
+
+                                <Link
+                                    to="/verify-email"
+                                    className="inline-block mt-2 text-sm font-medium hover:underline"
+                                >
+                                    Verify Email
+                                </Link>
+                            </div>
+                        )}
+                    </div>
+                    <div>
+                        <p className="text-sm font-medium">
+                            Email Status
+                        </p>
+
+                        {user?.emailVerified ? (
+                            <p className="mt-1 text-green-600">
+                                Email verified
+                            </p>
+                        ) : (
+                            <div className="mt-1">
+                                <p className="text-red-600">
+                                    Email not verified
+                                </p>
+
+                                <Link
+                                    to="/verify-email"
+                                    className="inline-block mt-2 text-sm font-medium hover:underline"
+                                >
+                                    Verify Email
+                                </Link>
+                            </div>
+                        )}
+                    </div>
                     <div>
                         <p className="text-sm font-medium">
                             Full Name
                         </p>
-                        <p>{user?.fullName}</p>
+                        <p className="mt-1">{user?.fullName}</p>
                     </div>
 
                 </div>
