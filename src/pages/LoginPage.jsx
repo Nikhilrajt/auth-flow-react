@@ -1,9 +1,10 @@
-import { useContext, useState} from "react";
+import { useContext, useState } from "react";
 import AuthInput from "../components/AuthInput";
 import AuthContext from "../contexts/AuthContextDefinition";
-import { useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import toast from "react-hot-toast";
+import ThemeContext from "../contexts/ThemeContextDefinition";
 import {
     validateEmail,
     validatePassword
@@ -12,6 +13,7 @@ import {
 function LoginPage() {
     const navigate = useNavigate();
     const { login, isLoading } = useContext(AuthContext);
+    const { theme, toggleTheme } = useContext(ThemeContext);
     const [formData, setFormData] = useState({
         email: "",
         password: ""
@@ -77,15 +79,29 @@ function LoginPage() {
     }
 
     return (
-        <div className="min-h-screen bg-gray-400 flex items-center justify-center px-4 py-8">
-            <div className="w-full max-w-md bg-gray-300 rounded-xl border border-gray-400 shadow-md p-8">
+        <div
+            className={`min-h-screen flex items-center justify-center px-4 py-8 ${theme === "dark" ? "bg-[#1e1e1e]" : "bg-gray-400"
+                }`}
+        >
+            <div
+                className={`w-full max-w-md rounded-xl border shadow-md p-8 ${theme === "dark"
+                    ? "bg-[#252526] border-[#3e3e42] text-white"
+                    : "bg-gray-300 border-gray-400 text-gray-900"
+                    }`}
+            >
 
                 <div className="text-center mb-7">
-                    <h1 className="text-3xl font-semibold text-gray-900">
+                    <h1
+                        className={`text-3xl font-semibold ${theme === "dark" ? "text-white" : "text-gray-900"
+                            }`}
+                    >
                         Welcome Back
                     </h1>
 
-                    <p className="text-sm text-gray-700 mt-2">
+                    <p
+                        className={`text-sm mt-2 ${theme === "dark" ? "text-gray-300" : "text-gray-700"
+                            }`}
+                    >
                         Login to your account
                     </p>
                 </div>
@@ -113,7 +129,8 @@ function LoginPage() {
                     />
                     <Link
                         to="/forgot-password"
-                        className="text-sm text-gray-900 font-medium hover:underline"
+                        className={`text-sm font-medium hover:underline ${theme === "dark" ? "text-gray-300" : "text-gray-900"
+                            }`}
                     >
                         Forgot password?
                     </Link>
@@ -124,7 +141,8 @@ function LoginPage() {
                             onChange={(e) => setRememberMe(e.target.checked)}
                         />
 
-                        <label className="text-sm text-gray-700">
+                        <label className={`text-sm ${theme === "dark" ? "text-gray-300" : "text-gray-700"
+                            }`}>
                             Remember me
                         </label>
                     </div>
@@ -142,12 +160,20 @@ function LoginPage() {
                     </button>
 
                 </form>
-
-                <p className="text-center text-sm text-gray-700 mt-6">
+                <button
+                    type="button"
+                    onClick={toggleTheme}
+                    className="w-full mt-4 bg-gray-700 hover:bg-gray-800 text-white font-medium py-3 rounded-lg"
+                >
+                    {theme === "light" ? "Dark Mode" : "Light Mode"}
+                </button>
+                <p className={`text-center text-sm mt-6 ${theme === "dark" ? "text-gray-300" : "text-gray-700"
+                    }`}>
                     Don't have an account?{" "}
                     <Link
                         to="/register"
-                        className="text-gray-900 font-medium hover:underline"
+                        className={`font-medium hover:underline ${theme === "dark" ? "text-white" : "text-gray-900"
+                            }`}
                     >
                         Register
                     </Link>

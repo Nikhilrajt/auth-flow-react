@@ -1,4 +1,5 @@
-import { useState } from "react";
+import ThemeContext from "../contexts/ThemeContextDefinition";
+import { useState, useContext } from "react";
 function AuthInput({
     label,
     name,
@@ -8,12 +9,13 @@ function AuthInput({
     onChange,
     error,
     status
-})
- {
+}) {
     const [showPassword, setShowPassword] = useState(false);
+    const { theme } = useContext(ThemeContext);
     return (
         <div>
-            <label className="block text-sm font-medium text-gray-800 mb-2">
+            <label className={`block text-sm font-medium mb-2 ${theme === "dark" ? "text-gray-200" : "text-gray-800"
+                }`}>
                 {label}
             </label>
 
@@ -23,24 +25,31 @@ function AuthInput({
                 value={value}
                 placeholder={placeholder}
                 onChange={onChange}
-                className="w-full bg-gray-200 border border-gray-400 rounded-lg px-4 py-3 text-gray-900 placeholder-gray-600 outline-none focus:border-gray-700 focus:ring-1 focus:ring-gray-500"
+                className={`w-full border rounded-lg px-4 py-3 outline-none ${theme === "dark"
+                        ? "bg-[#1e1e1e] border-[#3e3e42] text-white placeholder-gray-400 focus:border-gray-300"
+                        : "bg-gray-200 border-gray-400 text-gray-900 placeholder-gray-600 focus:border-gray-700"
+                    }`}
             />
             {type === "password" && (
-    <button
-        type="button"
-        onClick={() => setShowPassword((prev) => !prev)}
-        className="text-sm text-gray-700 mt-1 hover:underline"
-    >
-        {showPassword ? "Hide password" : "Show password"}
-    </button>
-)}
+                <button
+                    type="button"
+                    onClick={() => setShowPassword((prev) => !prev)}
+                    className={`text-sm mt-1 hover:underline ${theme === "dark" ? "text-gray-300" : "text-gray-700"
+                        }`}
+                >
+                    {showPassword ? "Hide password" : "Show password"}
+                </button>
+            )}
 
             {error ? (
                 <p className="text-red-600 text-sm mt-1">
                     {error}
                 </p>
             ) : status === "checking" ? (
-                <p className="text-gray-600 text-sm mt-1">
+                <p
+                    className={`text-sm mt-1 ${theme === "dark" ? "text-gray-300" : "text-gray-600"
+                        }`}
+                >
                     Checking username...
                 </p>
             ) : status === "available" ? (

@@ -7,11 +7,13 @@ import ProtectRoute from "./components/ProtectedRoute";
 import DashboardPage from "./pages/DashboardPage";
 import VerifyEmailPage from "./pages/VerifyEmailPage";
 import { Toaster } from "react-hot-toast";
+import ThemeProvider from "./contexts/ThemeContext";
 
 function App() {
   return (
     <>
     <Toaster position="top-right" />
+    <ThemeProvider>
     <AuthProvider>
       <BrowserRouter>
         <Routes>
@@ -30,6 +32,7 @@ function App() {
         </Routes>
       </BrowserRouter>
     </AuthProvider>
+    </ThemeProvider>
     </>
   )
 }

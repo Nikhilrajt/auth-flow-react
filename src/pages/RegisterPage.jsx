@@ -2,6 +2,7 @@ import { useState, useRef, useContext } from "react";
 import AuthContext from "../contexts/AuthContextDefinition";
 import AuthInput from "../components/AuthInput";
 import { checkUsername } from "../services/authApi";
+import ThemeContext from "../contexts/ThemeContextDefinition"
 import {
     validateFullName,
     validatePassword,
@@ -20,6 +21,7 @@ function RegisterPage() {
     const [usernameStatus, setUsernameStatus] = useState("");
     const usernameCheckRef = useRef(0);
     const { register, isLoading } = useContext(AuthContext);
+    const { theme, toggleTheme } = useContext(ThemeContext);
     const handleChange = async (e) => {
         const { name, value } = e.target;
 
@@ -90,29 +92,43 @@ function RegisterPage() {
         if (usernameError || emailError || passwordError || fullNameError) {
             return;
         }
-   try {
-    const user = await register(formData);
+        try {
+            const user = await register(formData);
 
-    console.log("User created", user);
-} catch (error) {
-    console.error("Registration error:", error);
+            console.log("User created", user);
+        } catch (error) {
+            console.error("Registration error:", error);
 
-    setErrors((prev) => ({
-        ...prev,
-        username: error.message
-    }));
-}
+            setErrors((prev) => ({
+                ...prev,
+                username: error.message
+            }));
+        }
     }
     return (
-        <div className="min-h-screen bg-gray-400 flex items-center justify-center px-4 py-8">
-            <div className="w-full max-w-md bg-gray-300 rounded-xl border border-gray-400 shadow-md p-8">
+        <div
+            className={`min-h-screen flex items-center justify-center px-4 py-8 ${theme === "dark" ? "bg-[#1e1e1e]" : "bg-gray-400"
+                }`}
+        >
+            <div
+                className={`w-full max-w-md rounded-xl border shadow-md p-8 ${theme === "dark"
+                        ? "bg-[#252526] border-[#3e3e42] text-white"
+                        : "bg-gray-300 border-gray-400 text-gray-900"
+                    }`}
+            >
 
                 <div className="text-center mb-7">
-                    <h1 className="text-3xl font-semibold text-gray-900">
+                    <h1
+                        className={`text-3xl font-semibold ${theme === "dark" ? "text-white" : "text-gray-900"
+                            }`}
+                    >
                         Create Account
                     </h1>
 
-                    <p className="text-sm text-gray-700 mt-2">
+                    <p
+                        className={`text-sm mt-2 ${theme === "dark" ? "text-gray-300" : "text-gray-700"
+                            }`}
+                    >
                         Create an account to get started
                     </p>
                 </div>
@@ -171,8 +187,17 @@ function RegisterPage() {
                     </button>
 
                 </form>
-
-                <p className="text-center text-sm text-gray-700 mt-6">
+                <button
+                    type="button"
+                    onClick={toggleTheme}
+                    className="w-full mt-4 bg-gray-700 hover:bg-gray-800 text-white font-medium py-3 rounded-lg"
+                >
+                    {theme === "light" ? "Dark Mode" : "Light Mode"}
+                </button>
+                <p
+                    className={`text-center text-sm mt-6 ${theme === "dark" ? "text-gray-300" : "text-gray-700"
+                        }`}
+                >
                     Already have an account?{" "}
                     <span className="text-gray-900 font-medium cursor-pointer hover:underline">
                         Login

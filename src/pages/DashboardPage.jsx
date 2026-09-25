@@ -1,19 +1,35 @@
 import { useContext } from "react";
 import AuthContext from "../contexts/AuthContextDefinition";
+import ThemeContext from "../contexts/ThemeContextDefinition";
 
 function DashboardPage() {
     const { user, logout } = useContext(AuthContext);
+    const { theme, toggleTheme } = useContext(ThemeContext);
 
     return (
-        <div className="min-h-screen bg-gray-400 flex items-center justify-center px-4 py-8">
-            <div className="w-full max-w-md bg-gray-300 rounded-xl border border-gray-400 shadow-md p-8">
+        <div
+            className={`min-h-screen flex items-center justify-center px-4 py-8 ${theme === "dark" ? "bg-[#1e1e1e]" : "bg-gray-400"
+                }`}
+        >
+            <div
+                className={`w-full max-w-md rounded-xl border shadow-md p-8 ${theme === "dark"
+                    ? "bg-[#252526] border-[#3e3e42] text-white"
+                    : "bg-gray-300 border-gray-400 text-gray-900"
+                    }`}
+            >
 
                 <div className="text-center mb-6">
-                    <h1 className="text-3xl font-semibold text-gray-900">
+                    <h1
+                        className={`text-3xl font-semibold ${theme === "dark" ? "text-white" : "text-gray-900"
+                            }`}
+                    >
                         Welcome, {user?.fullName}
                     </h1>
 
-                    <p className="text-sm text-gray-700 mt-2">
+                    <p
+                        className={`text-sm mt-2 ${theme === "dark" ? "text-gray-300" : "text-gray-700"
+                            }`}
+                    >
                         Your profile
                     </p>
                 </div>
@@ -29,12 +45,16 @@ function DashboardPage() {
                     <input
                         type="file"
                         accept="image/*"
-                        className="w-full text-sm text-gray-700"
+                        className={`w-full text-sm ${theme === "dark" ? "text-gray-300" : "text-gray-700"
+                            }`}
                     />
 
                 </div>
 
-                <div className="space-y-4 text-gray-800">
+                <div
+                    className={`space-y-4 ${theme === "dark" ? "text-gray-200" : "text-gray-800"
+                        }`}
+                >
 
                     <div>
                         <p className="text-sm font-medium">
@@ -64,6 +84,12 @@ function DashboardPage() {
                     className="w-full mt-7 bg-gray-800 hover:bg-gray-900 text-white font-medium py-3 rounded-lg transition"
                 >
                     Logout
+                </button>
+                <button
+                    onClick={toggleTheme}
+                    className="w-full mt-4 bg-gray-700 hover:bg-gray-800 text-white font-medium py-3 rounded-lg"
+                >
+                    {theme === "light" ? "Dark Mode" : "Light Mode"}
                 </button>
 
             </div>
