@@ -156,9 +156,15 @@ function LoginPage() {
                         disabled={isLoading}
                         className="w-full bg-gray-800 hover:bg-gray-900 text-white font-medium py-3 rounded-lg transition disabled:opacity-60"
                     >
-                        {isLoading ? "Logging in..." : "Login"}
+                        {isLoading ? (
+                            <span className="flex items-center justify-center gap-2">
+                                <span className="w-4 h-4 border-2 border-gray-300 border-t-white rounded-full animate-spin"></span>
+                                Logging in...
+                            </span>
+                        ) : (
+                            "Login"
+                        )}
                     </button>
-
                 </form>
                 <button
                     type="button"

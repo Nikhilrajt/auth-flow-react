@@ -31,12 +31,12 @@ export const validatePassword = (password) => {
 
   return "";
 };
-export const validateFullName = (fullName) =>{
-    if(!fullName.trim()){
-        return "Full name is required";
-    }
-    if(fullName.length < 2){
-        return "Full name must be at least 2 characters";
-    }
-    return "";
+export const validateFullName = (fullName) => {
+  if (!fullName.trim()) {
+    return "Full name is required";
+  }
+  if (fullName.length < 2) {
+    return "Full name must be at least 2 characters";
+  }
+  return "";
 }

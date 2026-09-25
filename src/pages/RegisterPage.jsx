@@ -112,8 +112,8 @@ function RegisterPage() {
         >
             <div
                 className={`w-full max-w-md rounded-xl border shadow-md p-8 ${theme === "dark"
-                        ? "bg-[#252526] border-[#3e3e42] text-white"
-                        : "bg-gray-300 border-gray-400 text-gray-900"
+                    ? "bg-[#252526] border-[#3e3e42] text-white"
+                    : "bg-gray-300 border-gray-400 text-gray-900"
                     }`}
             >
 
@@ -183,7 +183,14 @@ function RegisterPage() {
                         disabled={isLoading}
                         className="w-full bg-gray-800 hover:bg-gray-900 text-white font-medium py-3 rounded-lg transition"
                     >
-                        {isLoading ? "Creating Account..." : "Create Account"}
+                        {isLoading ? (
+                            <span className="flex items-center justify-center gap-2">
+                                <span className="w-4 h-4 border-2 border-gray-300 border-t-white rounded-full animate-spin"></span>
+                                Creating Account...
+                            </span>
+                        ) : (
+                            "Create Account"
+                        )}
                     </button>
 
                 </form>
