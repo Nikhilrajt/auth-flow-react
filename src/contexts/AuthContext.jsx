@@ -42,31 +42,31 @@ function AuthProvider({ children }) {
 
         restoreUser();
     }, []);
-    const register = async (userData) => {
-        setIsLoading(true);
+const register = async (userData) => {
+    setIsLoading(true);
 
-        try {
-            const users = await checkUsername(userData.username);
+    try {
+        const users = await checkUsername(userData.username);
 
-            if (users.length > 0) {
-                throw new Error("Username already exists");
-            }
-
-            const newUser = {
-                ...userData,
-                avatar:
-                    "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop",
-                createdAt: new Date().toISOString(),
-                emailVerified: false
-            };
-
-            const user = await createUser(newUser);
-
-            return user;
-        } finally {
-            setIsLoading(false);
+        if (users.length > 0) {
+            throw new Error("Username already exists");
         }
-    };
+
+        const newUser = {
+            ...userData,
+            avatar:
+                "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop",
+            createdAt: new Date().toISOString(),
+            emailVerified: false
+        };
+
+        const user = await createUser(newUser);
+
+        return user;
+    } finally {
+        setIsLoading(false);
+    }
+};
     const login = async (credentials) => {
         setIsLoading(true);
 

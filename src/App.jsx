@@ -6,9 +6,12 @@ import AuthProvider from "./contexts/AuthContext";
 import ProtectRoute from "./components/ProtectedRoute";
 import DashboardPage from "./pages/DashboardPage";
 import VerifyEmailPage from "./pages/VerifyEmailPage";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   return (
+    <>
+    <Toaster position="top-right" />
     <AuthProvider>
       <BrowserRouter>
         <Routes>
@@ -27,6 +30,7 @@ function App() {
         </Routes>
       </BrowserRouter>
     </AuthProvider>
+    </>
   )
 }
 

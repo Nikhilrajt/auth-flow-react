@@ -7,39 +7,56 @@ function DashboardPage() {
     return (
         <div className="min-h-screen bg-gray-400 flex items-center justify-center px-4 py-8">
             <div className="w-full max-w-md bg-gray-300 rounded-xl border border-gray-400 shadow-md p-8">
-                
+
                 <div className="text-center mb-6">
                     <h1 className="text-3xl font-semibold text-gray-900">
                         Welcome, {user?.fullName}
                     </h1>
+
                     <p className="text-sm text-gray-700 mt-2">
                         Your profile
                     </p>
                 </div>
 
-                <div className="flex justify-center mb-6">
+                <div className="flex flex-col items-center mb-6">
+
                     <img
                         src={user?.avatar}
                         alt="Profile"
-                        className="w-24 h-24 rounded-full object-cover border-2 border-gray-400"
+                        className="w-24 h-24 rounded-full object-cover border-2 border-gray-400 mb-4"
                     />
+
+                    <input
+                        type="file"
+                        accept="image/*"
+                        className="w-full text-sm text-gray-700"
+                    />
+
                 </div>
 
                 <div className="space-y-4 text-gray-800">
+
                     <div>
-                        <p className="text-sm font-medium">Username</p>
+                        <p className="text-sm font-medium">
+                            Username
+                        </p>
                         <p>{user?.username}</p>
                     </div>
 
                     <div>
-                        <p className="text-sm font-medium">Email</p>
+                        <p className="text-sm font-medium">
+                            Email
+                        </p>
                         <p>{user?.email}</p>
                     </div>
 
                     <div>
-                        <p className="text-sm font-medium">Full Name</p>
+                        <p className="text-sm font-medium">
+                            Full Name
+                        </p>
                         <p>{user?.fullName}</p>
                     </div>
+
                 </div>
 
                 <button
@@ -48,6 +65,7 @@ function DashboardPage() {
                 >
                     Logout
                 </button>
+
             </div>
         </div>
     );

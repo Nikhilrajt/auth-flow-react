@@ -58,6 +58,146 @@
       "createdAt": "2026-09-24T10:51:20.313Z",
       "id": "vJR7iJNBbFo",
       "emailVerified": false
+    },
+    {
+      "username": "Akshay",
+      "email": "akshay@gmail.com",
+      "password": "akshay@123",
+      "fullName": "Akshay S",
+      "avatar": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop",
+      "createdAt": "2026-09-25T09:06:27.323Z",
+      "emailVerified": false,
+      "id": "Pn3syGv8VDo"
+    },
+    {
+      "username": "kani",
+      "email": "kani@gmail.com",
+      "password": "kani@123",
+      "fullName": "Mydeen Kani",
+      "avatar": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop",
+      "createdAt": "2026-09-25T09:08:10.164Z",
+      "emailVerified": false,
+      "id": "L_IosK6hKwI"
+    },
+    {
+      "username": "shibin",
+      "email": "shibin@gmail.com",
+      "password": "shibin@123",
+      "fullName": "Shibin Thatthees",
+      "avatar": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop",
+      "createdAt": "2026-09-25T09:10:25.374Z",
+      "emailVerified": false,
+      "id": "TBXnRl7cFyg"
+    },
+    {
+      "username": "arrjn",
+      "email": "hsus@example.com",
+      "password": "2783hwhw",
+      "fullName": "arjunnnn",
+      "avatar": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop",
+      "createdAt": "2026-09-25T09:14:59.404Z",
+      "emailVerified": false,
+      "id": "R88XJvuRmU0"
+    },
+    {
+      "username": "varun",
+      "email": "varun@gmail.com",
+      "password": "varun@123",
+      "fullName": "varun dhawan",
+      "avatar": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop",
+      "createdAt": "2026-09-25T09:23:23.580Z",
+      "emailVerified": false,
+      "id": "yehA2YgRhI0"
+    },
+    {
+      "username": "raj",
+      "email": "raj@gmail.com",
+      "password": "raj@123",
+      "fullName": "rajesh",
+      "avatar": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop",
+      "createdAt": "2026-09-25T09:23:54.445Z",
+      "emailVerified": false,
+      "id": "3lcBcLn8B5Q"
+    },
+    {
+      "username": "suraj",
+      "email": "suraj@gmail.com",
+      "password": "suraj@123",
+      "fullName": "Suraj",
+      "avatar": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop",
+      "createdAt": "2026-09-25T09:28:26.881Z",
+      "emailVerified": false,
+      "id": "RAZBEqKlpi4"
+    },
+    {
+      "username": "giri",
+      "email": "giri@gmail.com",
+      "password": "giri@123",
+      "fullName": "Giri",
+      "avatar": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop",
+      "createdAt": "2026-09-25T09:31:13.348Z",
+      "emailVerified": false,
+      "id": "jsedhXxTO70"
+    },
+    {
+      "username": "raja",
+      "email": "rafag@gmail.com",
+      "password": "iweegy322",
+      "fullName": "ejowiiew",
+      "avatar": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop",
+      "createdAt": "2026-09-25T09:32:20.194Z",
+      "emailVerified": false,
+      "id": "ZY7p1owub_E"
+    },
+    {
+      "username": "eoeoe",
+      "email": "usuw@gmail.com",
+      "password": "jweuioe",
+      "fullName": "hdhudue",
+      "avatar": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop",
+      "createdAt": "2026-09-25T09:33:55.248Z",
+      "emailVerified": false,
+      "id": "PZAJa5BA3-0"
+    },
+    {
+      "username": "yeueu",
+      "email": "ueiie@gmail.com",
+      "password": "iweiiweiewwwe",
+      "fullName": "kjfjjfjfjf",
+      "avatar": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop",
+      "createdAt": "2026-09-25T09:40:03.154Z",
+      "emailVerified": false,
+      "id": "Yq5-o_1CxRY"
+    },
+    {
+      "username": "ksksks",
+      "email": "wwg@gmail.com",
+      "password": "iwjoieii",
+      "fullName": "wiiwiw",
+      "avatar": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop",
+      "createdAt": "2026-09-25T09:46:10.758Z",
+      "emailVerified": false,
+      "id": "G4gpZxjDO0o"
+    },
+    {
+      "username": "Ratheesh",
+      "email": "Ratheesh@gmail.com",
+      "password": "Ratheesh@123",
+      "fullName": "Ratheesh",
+      "avatar": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop",
+      "createdAt": "2026-09-25T09:48:06.726Z",
+      "emailVerified": false,
+      "id": "kj_gOoLZWtM"
+    },
+    {
+      "username": "susks",
+      "email": "jssisi@gmail.com",
+      "password": "idoioeie",
+      "fullName": "kwkwkkw",
+      "avatar": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop",
+      "createdAt": "2026-09-25T09:50:00.719Z",
+      "emailVerified": false,
+      "id": "c0VDwMVslDk"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

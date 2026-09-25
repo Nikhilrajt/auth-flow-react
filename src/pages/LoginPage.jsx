@@ -1,8 +1,9 @@
-import { useContext, useState } from "react";
+import { useContext, useState} from "react";
 import AuthInput from "../components/AuthInput";
 import AuthContext from "../contexts/AuthContextDefinition";
-import { useNavigate } from "react-router-dom";
+import { useNavigate} from "react-router-dom";
 import { Link } from "react-router-dom";
+import toast from "react-hot-toast";
 import {
     validateEmail,
     validatePassword
@@ -18,7 +19,6 @@ function LoginPage() {
     const [rememberMe, setRememberMe] = useState(false);
 
     const [errors, setErrors] = useState({});
-
     const handleChange = (e) => {
         const { name, value } = e.target;
 
@@ -65,9 +65,10 @@ function LoginPage() {
                 rememberMe
             });
 
-            console.log("Login successful");
+            toast.success("Login successful");
             navigate("/dashboard");
         } catch (error) {
+            toast.error(error.message);
             setErrors((prev) => ({
                 ...prev,
                 form: error.message
