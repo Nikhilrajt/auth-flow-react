@@ -1,6 +1,7 @@
-import { useState,useRef } from "react";
+import { useState,useRef,useContext } from "react";
+import AuthContext from "../contexts/AuthContextDefinition";
 import AuthInput from "../components/AuthInput";
-import { checkUsername, createUser } from "../services/authApi";
+import { checkUsername } from "../services/authApi";
 import {
     validateFullName,
     validatePassword,
@@ -16,9 +17,9 @@ function RegisterPage() {
         fullName: ""
     });
     const [errors, setErrors] = useState({});
-    const [isLoading, setIsLoading] = useState(false);
     const [usernameStatus, setUsernameStatus] = useState("");
     const usernameCheckRef = useRef(0);
+    const {register,isLoading} = useContext(AuthContext);
     const handleChange = async (e) => {
     const { name, value } = e.target;
 
@@ -88,33 +89,17 @@ const handleSubmit = async (e) => {
     if (usernameError || emailError || passwordError || fullNameError) {
         return;
     }
-    setIsLoading(true);
-    try {
-        const users = await checkUsername(formData.username);
-        if (users.length > 0) {
-            setErrors((prev) => ({
-                ...prev,
-                username: "Username already exists",
-            }));
-            return;
-        }
-        const newUser = {
-            ...formData,
-            avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop",
-            createdAt: new Date().toISOString()
-        }
-        const user = await createUser(newUser);
-        console.log("User created", user);
-    }
-    catch {
-        setErrors((prev) => ({
-            ...prev,
-            form: "Something went wrong. Please try again.",
-        }));
-    } finally {
-        setIsLoading(false);
-    }
-};
+   try {
+    const user = await register(formData);
+
+    console.log("User created", user);
+} catch (error) {
+    setErrors((prev) => ({
+        ...prev,
+        username: error.message
+    }));
+}
+}
 return (
     <div className="min-h-screen bg-gray-400 flex items-center justify-center px-4 py-8">
         <div className="w-full max-w-md bg-gray-300 rounded-xl border border-gray-400 shadow-md p-8">
